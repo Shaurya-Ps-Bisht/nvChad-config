@@ -1,5 +1,5 @@
 local cmp = require "cmp"
-
+local luasnip = require("luasnip")
 dofile(vim.g.base46_cache .. "cmp")
 
 local cmp_ui = require("core.utils").load_config().ui.cmp
@@ -106,6 +106,7 @@ local options = {
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },

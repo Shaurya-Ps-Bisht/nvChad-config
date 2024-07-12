@@ -1,5 +1,78 @@
 local plugins = {
   {
+    "kosayoda/nvim-lightbulb",
+    event = "VeryLazy",
+    config = function()
+      require('nvim-lightbulb').setup({
+        priority = 10,
+        hide_in_unfocused_buffer = true,
+        link_highlights = true,
+    validate_config = "auto",
+
+    action_kinds = nil,
+
+    sign = {
+        enabled = false,
+        text = "💡",
+        hl = "LightBulbSign",
+    },
+
+    virtual_text = {
+        enabled = false,
+        text = "💡",
+        pos = "eol",
+        hl = "LightBulbVirtualText",
+        hl_mode = "combine",
+    },
+
+    float = {
+        enabled = true,
+        text = "💡",
+        hl = "LightBulbFloatWin",
+        win_opts = {
+            focusable = false,
+        },
+    },
+
+    status_text = {
+        enabled = false,
+        text = "💡",
+        text_unavailable = "",
+    },
+
+    number = {
+        enabled = false,
+        hl = "LightBulbNumber",
+    },
+
+    line = {
+        enabled = false,
+        hl = "LightBulbLine",
+    },
+
+    autocmd = {
+        enabled = false,
+        updatetime = 200,
+        events = { "CursorHold", "CursorHoldI" },
+        pattern = { "*" },
+    },
+
+    ignore = {
+        clients = {},
+        ft = {},
+        actions_without_kind = false,
+    },
+
+      })
+      vim.cmd [[
+        augroup Lightbulb
+          autocmd!
+          autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
+        augroup END
+      ]]
+    end
+  },
+  {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = {"mfussenegger/nvim-dap","nvim-neotest/nvim-nio"},
