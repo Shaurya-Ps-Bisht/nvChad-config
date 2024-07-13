@@ -9,6 +9,7 @@ lspconfig.clangd.setup {
   --   "clangd",
   --   "--function-arg-placeholders=0",
   -- },
+  cmd = { "clangd", "--offset-encoding=utf-16" },
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
