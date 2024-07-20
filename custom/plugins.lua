@@ -140,10 +140,15 @@ local plugins = {
     end,
   },
   {
+    "tikhomirov/vim-glsl",
+    event = "VeryLazy",
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "clangd",
+        -- "lua-language-server",
         -- "clang-format",
         "codelldb",
       }
