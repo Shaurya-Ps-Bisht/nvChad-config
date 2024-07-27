@@ -16,6 +16,15 @@ lspconfig.clangd.setup {
   end,
   capabilities = capabilities,
 }
+
+local default_servers = {"tailwindcss", "eslint"}
+for _, lsp in ipairs(default_servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
@@ -26,7 +35,3 @@ lspconfig.tsserver.setup {
     }
   }
 }
-lspconfig.tailwindcss.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})

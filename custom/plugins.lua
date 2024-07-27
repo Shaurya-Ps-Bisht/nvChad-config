@@ -154,6 +154,7 @@ local plugins = {
         "typescript-language-server",
         "tailwindcss-language-server",
         "prettierd",
+        "eslint-lsp"
       }
     }
   },
